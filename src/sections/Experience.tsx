@@ -2,15 +2,15 @@ import React from 'react';
 
 const experiences = [
   {
-    role: 'Senior Developer',
-    company: 'Tech Company Inc.',
-    period: '2020 - Present',
+    role: 'Web Developer Intern',
+    company: 'Innovilla pvt ltd',
+    period: 'june 2025 - Present',
     description: 'Leading a team of developers to build scalable web applications using modern technologies.',
   },
   {
-    role: 'Frontend Developer',
+    role: 'Web Developer Intern',
     company: 'Digital Solutions',
-    period: '2018 - 2020',
+    period: 'june 2025 - Present',
     description: 'Developed and maintained responsive web applications using React and TypeScript.',
   },
   // Add more experiences as needed

@@ -6,6 +6,11 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
+  
+  /* Hero Section Colors */
+  --hero-gradient-start: #4c1d95;  /* purple-900 */
+  --hero-gradient-mid: #6b21a8;    /* purple-800 */
+  --hero-gradient-end: #1f2937;    /* gray-900 */
 }
 
 * {

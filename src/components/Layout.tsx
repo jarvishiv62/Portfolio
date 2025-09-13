@@ -1,32 +1,17 @@
-import { ReactNode } from 'react';
+'use client';
 
-const Navbar = () => {
-  return (
-    <nav className="w-full py-4 border-b border-gray-200 dark:border-gray-800">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
-          <div className="text-xl font-bold">Portfolio</div>
-          <div className="space-x-4">
-            <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-            <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400">About</a>
-            <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-            <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
+import { ReactNode } from "react";
+import dynamic from "next/dynamic";
 
-const Footer = () => {
-  return (
-    <footer className="w-full py-6 mt-12 border-t border-gray-200 dark:border-gray-800">
-      <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
-        <p>© {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
-      </div>
-    </footer>
-  );
-};
+// Dynamically import the Navbar with no SSR to avoid hydration issues
+const Navbar = dynamic(() => import("./Navbar"), {
+  ssr: false,
+});
+
+// Dynamically import the Footer with no SSR to avoid hydration issues
+const Footer = dynamic(() => import("./Footer"), {
+  ssr: false,
+});
 
 interface LayoutProps {
   children: ReactNode;
@@ -34,9 +19,9 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-900">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow mt-16">
         {children}
       </main>
       <Footer />

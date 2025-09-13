@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Layout from "@/components/Layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Welcome to my personal portfolio website",
+  title: "Utkarsh Maurya | Portfolio",
+  description: "Personal portfolio of Utkarsh Maurya - Full Stack Developer",
+  keywords: ["portfolio", "developer", "full stack", "web development"],
+  authors: [{ name: 'Utkarsh Maurya' }],
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#111827' },
+  ],
 };
 
 export default function RootLayout({
@@ -23,9 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light" style={{ colorScheme: 'light' }}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+    <html 
+      lang="en" 
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased text-gray-100 transition-colors duration-200">
+        <Layout>
+          {children}
+        </Layout>
       </body>
     </html>
   );
